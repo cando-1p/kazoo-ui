@@ -309,7 +309,7 @@ winkstart.module('numbers', 'numbers_manager', {
 
             if(numbers_data.length > 0) {
                 //var phone_number = numbers_data[0].phone_number.match(/^\+?1?([2-9]\d{9})$/),
-                var phone_number = numbers_data[0].phone_number.match(/^\+(.*)$/),
+                var phone_number = numbers_data[0].phone_number.match(/^(\+.*)$/),
                     error_function = function() {
                         winkstart.confirm(_t('numbers_manager', 'there_was_an_error') + numbers_data[0].phone_number +
                             _t('numbers_manager', 'would_you_like_to_retry'),
@@ -355,7 +355,7 @@ winkstart.module('numbers', 'numbers_manager', {
                 number_data;
 
             if(numbers_data.length > 0) {
-                var phone_number = numbers_data[0].phone_number.match(/^\+(.*)$/),
+                var phone_number = numbers_data[0].phone_number.match(/^(\+.*)$/),
                     error_function = function() {
                         winkstart.confirm(_t('numbers_manager', 'there_was_an_error') + numbers_data[0].phone_number +
                             _t('numbers_manager', 'would_you_like_to_retry'),
@@ -459,7 +459,7 @@ winkstart.module('numbers', 'numbers_manager', {
             $(numbers_manager_html).delegate('.cid', 'click', function() {
                 var $cnam_cell = $(this),
                     data_phone_number = $cnam_cell.parents('tr').first().attr('id'),
-                    phone_number = data_phone_number.match(/^\+(.*)$/);
+                    phone_number = data_phone_number.match(/^(\+.*)$/);
 
                 if(phone_number[1]) {
                     THIS.get_number(phone_number[1], function(_data) {
@@ -495,7 +495,7 @@ winkstart.module('numbers', 'numbers_manager', {
             $(numbers_manager_html).delegate('.cid_inbound', 'click', function() {
                 var $cnam_cell = $(this),
                     data_phone_number = $cnam_cell.parents('tr').first().attr('id'),
-                    phone_number = data_phone_number.match(/^\+(.*)$/);
+                    phone_number = data_phone_number.match(/^(\+.*)$/);
 
                 if(phone_number[1]) {
                     THIS.get_number(phone_number[1], function(_data) {
@@ -530,7 +530,7 @@ winkstart.module('numbers', 'numbers_manager', {
             $(numbers_manager_html).delegate('.e911', 'click', function() {
                 var $e911_cell = $(this),
                     data_phone_number = $e911_cell.parents('tr').first().attr('id'),
-                    phone_number = data_phone_number.match(/^\+(.*)$/);
+                    phone_number = data_phone_number.match(/^(\+.*)$/);
 
                 if(phone_number[1]) {
                     THIS.get_number(phone_number[1], function(_data) {
@@ -748,7 +748,7 @@ winkstart.module('numbers', 'numbers_manager', {
                     var phone_number;
                     $.each(phone_numbers, function(k, v) {
                         //phone_number = v.match(/^\+?1?([2-9]\d{9})$/);
-                        phone_number = v.match(/^\+(.*)$/);
+                        phone_number = v.match(/^(\+.*)$/);
                         if(phone_number && phone_number[1]) {
                             numbers_data.push({phone_number: v});
                         }
@@ -1089,7 +1089,7 @@ winkstart.module('numbers', 'numbers_manager', {
 
                 	port_form_data.port.main_number = port_form_data.port.main_number.replace(/[\s-\(\)\.]/g, '');
 
-                	var res = port_form_data.port.main_number.match(/^\+?1?([2-9]\d{9})$/);
+                	var res = port_form_data.port.main_number.match(/^(\+\d+)$/);
                 	res ? port_form_data.port.main_number = '+1' + res[1] : string_alert += _t('numbers_manager', 'you_need_to_enter_main_number');
 
                 	var is_toll_free_main = THIS.check_toll_free(port_form_data.port.main_number);
@@ -1099,7 +1099,7 @@ winkstart.module('numbers', 'numbers_manager', {
                 	phone_numbers = [];
                 	var error_toll_free = [];
                 	$.each(port_form_data.phone_numbers, function(i, val) {
-                    	var result = val.match(/^\+?1?([2-9]\d{9})$/);
+                    	var result = val.match(/^\(+\d+)$/);
 
                     	if(result) {
                         	if(THIS.check_toll_free(result[1]) === is_toll_free_main) {
