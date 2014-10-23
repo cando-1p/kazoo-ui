@@ -2,7 +2,7 @@ window.translate['layout'] = {
 	welcome_to_the: "Welcome to the",
 	platform: "platform.",
 	learn_more: "LEARN MORE",
-	powered_by: "Powered by 2600hz",
+	powered_by: "Powered by 1Pipe",
 	please_wait: "Please wait..."
 	
 };
