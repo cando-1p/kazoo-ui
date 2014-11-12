@@ -224,7 +224,8 @@ function(args) {
             {
                 'sTitle': 'Actions',
                 'sWidth': '80px',
-                'bSortable': false
+                'bSortable': false,
+		'bVisible': winkstart.apps['auth'].is_reseller || (winkstart.config.hasOwnProperty('reseller_id') ? (winkstart.config.reseller_id === winkstart.apps['auth'].account_id) : false),
             },
             {
                 'sTitle': 'Cost'
