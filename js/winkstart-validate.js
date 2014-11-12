@@ -49,6 +49,10 @@
                         string_alert += 'No credit card found for your account.';
                     }
                     else {
+                    if(data.message === 'new_acc') {
+                        string_alert += "Your account is still in trial status limiting many changes.<br>To solve this, convert to a regular account by just <a href='http://support.1pipetelecom.com/support/solutions/articles/1000049858-add-a-credit-card-to-your-account' target='_blank'>adding a credit card to your account. Instructions here.</a><br><b>The only charge at that time</b> will be the nominal monthly fee for the DID that was free during the trial mode.";
+                    }
+                    else {
                         string_alert += 'Error status code : ' + status + '<br/><br/><br/>';
                         string_alert += winkstart.print_r(data);
                     }
